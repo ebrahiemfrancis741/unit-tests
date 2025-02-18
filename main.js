@@ -52,4 +52,27 @@ function caesarCipher(text, shift) {
   return cipher;
 }
 
-export { capitalize, reverseString, calculator, caesarCipher };
+function analyzeArray(array) {
+  let average = 0;
+  let min, max;
+  let length = array.length;
+
+  min = array[0];
+  max = array[0];
+
+  for (let i = 0; i < length; i++) {
+    if (array[i] < min) min = array[i];
+    if (array[i] > max) max = array[i];
+    average += array[i];
+  }
+  average = average / length;
+
+  return {
+    average: average,
+    min: min,
+    max: max,
+    length: length,
+  };
+}
+
+export { capitalize, reverseString, calculator, caesarCipher, analyzeArray };
