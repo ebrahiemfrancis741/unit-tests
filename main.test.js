@@ -1,4 +1,4 @@
-import { capitalize, reverseString, calculator } from "./main.js";
+import { capitalize, reverseString, calculator, caesarCipher } from "./main.js";
 
 test("capitalize", () => {
   expect(capitalize("hello")).toEqual("Hello");
@@ -25,4 +25,15 @@ test("calculator", () => {
   expect(calculator.divide(5, 5)).toEqual(1);
   expect(calculator.divide(10, -2)).toEqual(-5);
   expect(calculator.divide(5, 0)).toEqual(Infinity);
+});
+
+test("caesarCipher", () => {
+  expect(caesarCipher("abc", 1)).toEqual("bcd");
+  expect(caesarCipher("abc", 2)).toEqual("cde");
+  expect(caesarCipher("aBc", 2)).toEqual("cDe");
+  expect(caesarCipher("ABc", 2)).toEqual("CDe");
+  expect(caesarCipher("ZaB", 4)).toEqual("DeF");
+  expect(caesarCipher("abc", 0)).toEqual("abc");
+  expect(caesarCipher("HeLLo", 3)).toEqual("KhOOr");
+  expect(caesarCipher("Hello, World!", 3)).toEqual("Khoor, Zruog!");
 });
